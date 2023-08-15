@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio</title>
+</head>
+
+<style>
+    body {
+        background-color: rgb(30, 30, 30);
+        text-align: center;
+    }
+
+    h1 {
+        color: white;
+        font-size: 50px;
+    }
+
+    #res {
+        color: white;
+        font-size: 25px;
+    }
+
+    #ganhador{
+        color: green;
+        font-size: 25px;
+    }
+</style>
+
+<body>
+    <h1>SORTEIO</h1>
+
+    <input type="text" id="nome">
+
+    <button onclick="nome()">Adicionar</button>
+
+    <button onclick="sortear()">Sortear</button>
+
+    <div>
+
+    <div id="res">
+
+    </div>
+
+    <div id="ganhador">
+
+    </div>
+    
+
+    <script>
+
+        var nomes = []
+
+        function nome() {
+
+            var nome = document.getElementById("nome").value
+            var res = document.getElementById("res")
+            res.innerHTML = " "
+
+            nomes.push(nome)
+
+            for (i = 0; i < nomes.length; i++) {
+                res.innerHTML += nomes[i] + "<br>"
+            }
+
+        }
+
+        function sortear() {
+
+            var ganhador = document.getElementById("ganhador")
+            var num = Math.round(Math.random() * nomes.length)
+
+            ganhador.innerHTML = nomes[num]
+        }
+
+
+    </script>
+
+</body>
+
+</html>
